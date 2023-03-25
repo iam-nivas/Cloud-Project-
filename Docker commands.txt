@@ -1,0 +1,82 @@
+DOCKER COMMANDS :
+
+docker commit <Container ID> [New Name]
+
+docker exec -it <Img ID>
+
+docker network inspect bridge
+
+docker run --name CONTAINER A -d -p 8080:8080 Tomcat:8.0
+
+docker run --name CONTAINER B -d -p 8080:8080 Tomcat:8.0
+
+docker exec -it CONTAINER A /bin/bash
+
+----------------------------------------------------------------------------------------------
+                                   Making Network port in DOCKER
+
+docker network create mynetwork -a
+
+docker network connect mynetwork -a CONTAINER A
+
+docker network connect mynetwork -a CONTAINER B
+
+docker network list
+
+------------------------------------------------------------------------------------------------------
+
+netstat -ano | findstr 808
+ipconfig
+
+---------------------------------------------------------------------------------------------------------
+
+FROM              : To pull the base Image
+RUN               : To Execute COMMANDS
+CMD               : To provide Defaults for an Executing Container
+ENTRY POINT       : To Configure a Container that will run as an Executable
+WORKDIR           : To sets the working directory
+COPY              : To Copy a directory from your local Machine to the docker container
+ADD               : To Copy Files and Folders from your Local Machine to Docker Container
+EXPOSE            : Informs docker that the container Listens on the specified network ports at a runtime
+ENV               : To set enviroment variables
+------------------------------------------------------------------------------------------------------------------
+
+                                **** Important Docker Note ****
+									
+docker run -itd --name jenkins --network desktop_archimedis	 -p 8080:8080 ubuntu:22.04
+
+docker attach < container ID /> 
+
+#apt update
+#apt install net-tools
+#apt install iputils-ping
+
+Docker ports < Container ID />
+
+docker run -itd --network desktop_archimedis \
+--ip 10.100.12.226 \
+--name jenkins jfrog 
+
+
+
+$ docker network create netname --subnet=10.100.12.226/16
+
+$ docker run -it --net netname --ip 10.100.12.226 -p 8080:80 nginx
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+docker stop test01
+
+docker commit test01 test02
+
+docker run -p 8080:8080 -td test02
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+curl -O https://dlcdn.apache.org/maven/maven-3/3.8.7/binaries/apache-maven-3.8.7-bin.tar.gz
+
+tar -xvzf apache-maven-3.8.7-bin.tar.gz
+
+
+
